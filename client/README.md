@@ -39,27 +39,24 @@ So far, the following features are supported:
 The current task list, more or less in order of priority, is:
 
 * Manage multi-file projects
-  * Resolve the include files problem
   * debounce include checking (ie one per second max)
   * debounce compilation (eg wait until 200ms or so have passed)
-  * add definition link to included files, so they can be opened directly
-    * Navigate to include files too when ctrl+clicking filename
+  * add definition link to included files, so they can be opened directly with ctrl+clicking
   * Support INCDIR
   * Support INCBIN
 * Auto completion
   * Add all registers
-  * Add labels
   * Parameter hints https://code.visualstudio.com/docs/editor/editingevolved#_parameter-hints
 * Respect preferences
-  * Prefer uppercase/lowercase for pseudo-ops
-* Add extension settings keys
-  * Tabbing/spacing preferences?
+  * Prefer uppercase/lowercase for pseudo-ops and instructions
+  * Add tabbing/spacing preferences?
 * Language definition
   * Add parameters to instructions and pseudo-ops descriptions
   * Add register list
   * Better descriptions for pseudo-ops
 * More syntax highlight: symbol, labels
   * Differentiate between values (#$99) and addresses ($99)
+  * Show binaries as bitmap (for better sprite definition)
 * More hover support
   * Show line where the hover is defined
   * Show comments from the same line (or before)
@@ -77,9 +74,9 @@ The current task list, more or less in order of priority, is:
   * Format-as-you-type
 * Source code snippets
 * Smart bracket matching
-* Play compiled game on new tab
-  * Use [6502.ts](https://github.com/6502ts/6502.ts) instead of Javatari?
 * Debugger support
+  * Play compiled game on new tab
+  * Use [6502.ts](https://github.com/6502ts/6502.ts) instead of Javatari?
   * Play/pause
   * Step in/out/etc
   * Hot reload (continue on same address)
