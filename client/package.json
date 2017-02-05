@@ -32,10 +32,62 @@
   ],
   "activationEvents": [
     "onLanguage:dasm",
-    "onCommand:vscode-dasm.openToTheSide"
+    "onCommand:vscode-dasm.openToTheSide",
+    "onCommand:extension.vscode-dasm.getProgramName",
+		"onCommand:extension.vscode-dasm.provideInitialConfigurations"
   ],
   "main": "./out/src/extension",
   "contributes": {
+    "breakpoints": [
+      {
+        "language": "dasm"
+      }
+    ],
+    "debuggers": [
+			{
+				"type": "atari",
+				"label": "Atari Debug",
+
+				"program": "./out/src/debugAtari.js",
+				"runtime": "node",
+
+				"variables": {
+					"AskForProgramName": "extension.vscode-dasm.getProgramName"
+				},
+
+				"configurationSnippets": [
+					{
+						"label": "Atari Debug: Launch",
+						"description": "A new configuration for launching an Atari debug program",
+						"body": {
+							"type": "atari",
+							"request": "launch",
+							"name": "${2:Launch Program}",
+							"program": "^\"\\${workspaceRoot}/${1:Program}\""
+						}
+					}
+				],
+
+				"configurationAttributes": {
+					"launch": {
+						"required": [ "program" ],
+						"properties": {
+							"program": {
+								"type": "string",
+								"description": "Absolute path to a text file.",
+								"default": "${workspaceRoot}/${command.AskForProgramName}"
+							},
+							"stopOnEntry": {
+								"type": "boolean",
+								"description": "Automatically stop after launch.",
+								"default": true
+							}
+						}
+					}
+				},
+				"initialConfigurations": "extension.vscode-dasm.provideInitialConfigurations"
+			}
+		],
     "configuration": {
       "type": "object",
       "title": "VSCode-dasm configuration",
@@ -105,11 +157,14 @@
     "mocha": "^3.2.0",
     "tslint": "^4.3.1",
     "typescript": "^2.1.5",
-    "vscode": "^1.0.3"
+    "vscode": "^1.0.3",
+    "vscode-debugadapter-testsupport": "^1.16.0"
   },
   "dependencies": {
     "dasm": "^4.1.0",
     "path": "^0.12.7",
+    "vscode-debugadapter": "^1.16.0",
+    "vscode-debugprotocol": "^1.16.0",
     "vscode-languageclient": "^3.0.3"
   }
 }
