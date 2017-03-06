@@ -44,6 +44,7 @@ The current task list, more or less in order of priority, is:
   * add definition link to included files, so they can be opened directly with ctrl+clicking
   * Support INCDIR
   * Support INCBIN
+  * when opening included files, use file language type https://code.visualstudio.com/updates/v1_9#_new-api-to-open-an-untitled-file-with-optional-language
 * Auto completion
   * Add all registers
   * Parameter hints https://code.visualstudio.com/docs/editor/editingevolved#_parameter-hints
@@ -65,6 +66,7 @@ The current task list, more or less in order of priority, is:
   * Identify values - e.g.  #$99 is value $99, $3E32 is memory location
   * Add more complex pseudo-ops descriptions
   * Use parameters for pseudo-ops in the description
+* [Inline variables when debugging](https://code.visualstudio.com/updates/v1_9#_inline-variable-values-in-source-code)
 * More navigation to definition support
   * Clean up provider file
 * Find usages
